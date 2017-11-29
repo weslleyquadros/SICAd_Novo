@@ -32,6 +32,9 @@ public class Usuario extends Model<Usuario> {
 	private String senha;
 	private boolean ativo;
 	
+
+
+	
 	@Enumerated(value = EnumType.STRING)
 	
 	private Permissao permissao;

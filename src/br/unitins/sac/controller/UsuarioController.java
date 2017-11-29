@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import br.unitins.frame.controller.Controller;
 import br.unitins.frame.validation.Validation;
 import br.unitins.sac.factory.JPAFactory;
+import br.unitins.sac.model.Permissao;
 import br.unitins.sac.model.Usuario;
 import br.unitins.sac.repository.UsuarioRepository;
 import br.unitins.sac.validation.UsuarioValidation;
@@ -53,6 +54,10 @@ public class UsuarioController extends Controller<Usuario> {
 		return listaUsuario;
 	}
 	
+// cria um array com as permissões 
+	public Permissao[] getPermissao(){
+		return Permissao.values();
+	}
 	
 	public void setListaUsuario(List<Usuario> listaUsuario) {
 		this.listaUsuario = listaUsuario;}
