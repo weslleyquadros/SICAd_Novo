@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import br.unitins.frame.repository.Repository;
 
@@ -19,6 +20,12 @@ public class UsuarioRepository extends Repository<Usuario>{
 	@Override
 	protected Class<Usuario> getModelClass() {
 		return Usuario.class;
+	}
+	
+	public Usuario buscarUsuarioPorLogin(String login) {
+		TypedQuery<Usuario> query = geEntityManager().createQuery("SELECT u FROM Usuario u WHERE u.login = :login", Usuario.class);
+		
+		return query.setParameter("login", login).getSingleResult();
 	}
 	
 	@SuppressWarnings("unchecked")

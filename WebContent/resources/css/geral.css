@@ -51,6 +51,11 @@ body, html {
 	background-color: #5A9367;
 	border-right: 1px solid #fff;
 }
+.logo2 {
+	margin-top: 10px;
+	margin-left: 10px;
+	height: 80%;
+}
 
 .logo {
 	margin-top: 10px;
@@ -131,5 +136,17 @@ body, html {
 	right: 0;
 	background-color: #8CD790;
 	color: #fff;
-	text-align: right;
+	text-align: center;
+}
+
+.ui-menu, .ui-menu .ui-menu-child{
+	background-color:#5A9367!important;
+	border: none!important;
+	color: white!important;
+	padding-bottom: .3rem!important;	
+	
+}
+.ui-menuitem-text{
+	color: #fff!important;
+	margin: .8rem 2rem 1.8rem 3rem;
 }

@@ -9,7 +9,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/admin/**" access="ROLE_ADMINISTRADOR" />
-		<intercept-url pattern="/restrito/**" access=" ROLE_SECRETARIA" />
+		<intercept-url pattern="/restrito/**" access=" ROLE_SECRETARIA, ROLE_ADMINISTRADOR" />
 	
 		<form-login login-page="/publico/login.xhtml"
 			always-use-default-target="true"
@@ -26,7 +26,7 @@
 				authorities-by-username-query="SELECT  
 												u.login, u.permissao 
 											  FROM 
-											  	usuario u, usuario p 
+											  	usuario u
 											  WHERE 
 											   	u.login = ?" 
 				users-by-username-query="SELECT login, senha, ativo FROM usuario WHERE login = ?"/>

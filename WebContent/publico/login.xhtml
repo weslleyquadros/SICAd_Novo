@@ -1,27 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
+    <h:head>
+   
+        <title>:: SICAD ::</title>
+       
+         <h:outputStylesheet library="css" name="style.css"/>
+        
+       
+         <h:outputScript library="js" name="index.js"/>
+    </h:head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <body>
+         <h:form class="topo">
+             
+            
+            <p:graphicImage library="img" width="250"  alt="Logo" name="sicad_login.png" /> 
+                                
+             
+           
+        </h:form>
+        
+        <div class="wrapper">
+            <div class="container">
+                <h1>Acesso ao Sistema</h1>
 
-	<title>Login - SICAd</title>
-
-	<h:outputStylesheet name="geral.css" />
-
-	<h:outputStylesheet library="awesome" name="css/font-awesome.css" />
-
-</h:head>
-
-<h:body styleClass="body">
-	
-	<h:panelGroup rendered="#{!empty param.login_error}">
+              
+                <h:panelGroup rendered="#{!empty param.login_error}">
 		<span style="color: red"> Erro ao efetuar o login.</span>
 		<br />
 		<br />
@@ -29,10 +38,9 @@
 	</h:panelGroup>
 
 	<form id="login" method="post"
-		action="#{request.contextPath}/j_spring_security_check" class="form-login">
-		<table class="tabela-login">
-			
-			<tr>
+		action="#{request.contextPath}/j_spring_security_check" class="form">
+                    <h:form>
+                       <tr>
 				<td>LOGIN:</td>
 				<td><input type='text' name='j_username' /></td>
 			</tr>
@@ -40,20 +48,45 @@
 				<td>SENHA:</td>
 				<td><input type='password' name='j_password' /></td>
 			</tr>
-			<tr>
-				<td align="right"><input type="checkbox"
-					name="_spring_security_remember_me" /></td>
+			  <tr>
+                   
+        <p:selectBooleanCheckbox name="_spring_security_remember_me"  />
+				
 				<td>Logar automaticamente</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td><input type="submit" value="Logar" class="login" /></td>
 			</tr>
-		</table>
+			
+		
 		<script>
 		document.getElementById("login").j_username.value = "#{SPRING_SECURITY_LAST_USERNAME}"; 
 	</script>
-	</form>
-	
-</h:body>
+                        <h:messages class="alert alert-danger" />
+                        
+                    </h:form>
+                    <br></br>
+                      <br></br>
+                        <br></br>
+                          <br></br>
+                  
+                </form>
+            </div>
+
+            <ul class="bg-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        
+    </body>
 </html>

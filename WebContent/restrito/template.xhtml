@@ -26,16 +26,48 @@
 	</p:dialog>
 
 	<div class="quadroIconeMenu">
-		<a href="#"> <i class="fa fa-plus fa-2x iconeMenu" />
-		</a>
+		<i class="fa fa-plus fa-2x iconeMenu" />
+
 	</div>
 
 	<div class="ui-g">
 
 		<div class="cabecalho ui-g-12">
-			<div class="quadroLogo">
+			<div class="quadroLogo ui-g-3">
 				<p:graphicImage library="img" name="logo.png" styleClass="logo" />
 			</div>
+
+			<div class="ui-g-7">
+				<center> <h:graphicImage library="img"
+					name="logo_sicad.png" style="height: 4rem; "></h:graphicImage> </center>
+			</div>
+
+			<div class="ui-g-2">
+				<h:form>
+					<p:menubar>
+
+						<p:submenu label="#{perfilController.usuarioLogado.nome}">
+
+
+							<p:separator />
+							<p:menuitem title="Perfil" action="/restrito/perfil.xhtml"
+								value="Perfil" icon=" fa fa-id-card" />
+							<p:menuitem title="Redefinir Senha"
+								action="/restrito/mudarSenha.xhtml" value="Redefinir Senha"
+								icon=" fa fa-key" />
+
+							<p:menuitem
+								onclick="document.location='#{request.contextPath}/j_spring_security_logout'"
+								title="Sair" value="Sair" icon="fa fa-sign-out" />
+
+						</p:submenu>
+
+
+					</p:menubar>
+
+				</h:form>
+			</div>
+
 		</div>
 
 
@@ -43,21 +75,21 @@
 			<div class="menu">
 				<h:form>
 					<p:menu toggleable="true">
-						<p:menuitem value="Home" ajax="false" action="/pages/home.xhtml"
+						<p:menuitem value="Home" ajax="false" url="/restrito/home.xhtml"
 							icon="ui-icon-star" />
 
 
 						<p:submenu label="Cadastro de Pessoas">
-							<p:menuitem value="Pessoas" action="/pages/cadastroPessoas.xhtml"
+							<p:menuitem value="Pessoas" url="/restrito/cadastroPessoas.xhtml"
 								ajax="false" icon="ui-icon-person" />
 						</p:submenu>
 
 						<p:submenu label="Aluno">
 							<p:menuitem value="Aluno" ajax="false" icon="ui-icon-person"
-								action="/pages/cadastroAluno.xhtml" />
+								url="/restrito/cadastroAluno.xhtml" />
 
 							<p:menuitem value="Cidades" ajax="false"
-								action="/pages/cadastroCidade.xhtml" icon="fa fa-home" />
+								url="/restrito/cadastroCidade.xhtml" icon="fa fa-home" />
 
 
 							<p:menuitem value="Realizar Matricula" icon="ui-icon-disk" />
@@ -73,8 +105,11 @@
 						<p:menuitem value="Curso" icon="ui-icon-extlink" />
 						<p:menuitem value="Disciplina" icon="ui-icon-extlink" />
 						<p:menuitem value="Turma" icon="ui-icon-extlink" />
-						
-							
+						<p:menuitem value="Usuario" ajax="false"
+							url="/admin/cadastroUsuario.xhtml" icon="ui-icon-extlink" />
+
+
+
 					</p:menu>
 
 				</h:form>

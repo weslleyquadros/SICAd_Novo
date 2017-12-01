@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="conteudo">
+		<f:view>
+			<center>
+				<div style="margin:10rem 0; ">
+					<h1 style="margin-bottom:5rem;">Mudar Senha</h1>
+					<p:panelGrid columns="2" layout="grid">
+						<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Senha Anterior:  " />
+						<h:inputSecret />	
+						
+						<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Nova Senha" />
+						<h:inputSecret />	
+						
+						<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Confirmar Nova Senha:  " />
+						<h:inputSecret />				
+					</p:panelGrid>
+					
+				</div>
+			</center>
+		</f:view>
+
+	</ui:define>
+</ui:composition>

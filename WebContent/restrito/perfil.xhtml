@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="conteudo">
+		<f:view>
+			<center>
+				<div style="margin: 10rem 0;">
+					<h1 style="margin-bottom: 5rem;">Perfil de
+						#{perfilController.usuarioLogado.nome}</h1>
+
+					<!-- FORMULÁRIO DE CADASTRO DE FORNECEDOR-->
+					<h:form id="form">
+						<p:growl id="growl" showDetail="false" sticky="true" life="5000" />
+
+
+						<p:panel id="panel">
+
+							<p:panelGrid columns="2" layout="grid">
+
+
+
+
+								<h:outputText
+									style="font-weight:bold; font-size: 18pt; text-align:left"
+									value="Nome:" />
+								<h:outputText value="#{perfilController.usuarioLogado.nome}" />
+
+								<h:outputText
+									style="font-weight:bold; font-size: 18pt; text-align:left"
+									value="E-mailL:" />
+								<h:outputText value="#{perfilController.usuarioLogado.email}" />
+
+								<h:outputText
+									style="font-weight:bold; font-size: 18pt; text-align:left"
+									value="Permissão" />
+								<h:outputText
+									value="#{perfilController.usuarioLogado.permissao}" />
+
+
+								<h:outputText
+									style="font-weight:bold; font-size: 18pt; text-align:left"
+									value="Mudar Senha:" />
+								<h:inputSecret value="#{perfilController.usuarioLogado.senha}" />
+
+
+							</p:panelGrid>
+							<br />
+
+							<p:commandButton value="Alterar" icon="fa fa-pencil"
+								actionListener="#{perfilController.update}" process="panel"
+								update="form" styleClass="default" />
+
+						</p:panel>
+
+
+					</h:form>
+
+
+
+				</div>
+			</center>
+		</f:view>
+
+	</ui:define>
+</ui:composition>
