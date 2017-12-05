@@ -13,6 +13,8 @@
 		<class>br.unitins.sac.model.Cidade</class>
 		<class>br.unitins.sac.model.Usuario</class>
 		<class>br.unitins.sac.model.Pessoas</class>
+		<class>br.unitins.sac.model.Professor</class>
+		<class>br.unitins.sac.model.Disciplina</class>
 
 		<shared-cache-mode>NONE</shared-cache-mode>
 

@@ -1,0 +1,107 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/restrito/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<f:view>
+			<center>
+
+				<h:form id="form">
+					<p:growl id="growl" showDetail="false" sticky="false" life="5000" />
+
+
+					<p:panel id="panel" header="Cadastro de Professor">
+						<p:panelGrid id="pgDados" columns="2" styleClass="semBorda">
+
+							<p:outputLabel value="Nome:" />
+				<p:selectOneMenu value="#{professorController.entity.pessoas}" style="width:215px;">
+				 <f:converter converterId="pessoasConverter"/>
+	                <f:selectItem  itemLabel="Selecione uma Pessoa ..." />
+	                <f:selectItems value="#{professorController.listaPessoas}" var="o" itemLabel="#{o.nome}" itemValue="#{o}"/>
+				</p:selectOneMenu>
+
+							<p:outputLabel value="Experiencia" />
+							<p:inputText value="#{professorController.entity.experiencia}" />
+
+
+							<p:outputLabel value="Natural de:" />
+							<p:selectOneMenu value="#{professorController.entity.cidade}"
+								style="width:200px;">
+								<f:converter converterId="cidadeConverter" />
+								<f:selectItem itemLabel="Selecione uma cidade ..." />
+								<f:selectItems value="#{professorController.listaCidade}"
+									var="o" itemLabel="#{o.nome}" itemValue="#{o}" />
+							</p:selectOneMenu>
+
+
+						</p:panelGrid>
+
+						<br />
+
+						<p:commandButton value="Incluir"
+							actionListener="#{professorController.insert}"
+							disabled="#{professorController.entity.id != null}"
+							process="panel" update="form" />
+
+						<p:commandButton value="Alterar"
+							actionListener="#{professorController.update}"
+							disabled="#{professorController.entity.id == null}"
+							process="panel" update="form" />
+
+						<p:commandButton value="Excluir"
+							actionListener="#{professorController.delete}"
+							disabled="#{professorController.entity.id == null}"
+							process="panel" update="form" />
+
+						<p:commandButton value="Limpar" icon=""
+							actionListener="#{professorController.clean}" process="panel"
+							update="form" />
+
+					</p:panel>
+
+					<br />
+					<p:separator id="separator" />
+					<br />
+
+					<p:dataTable id="dataTable"
+						value="#{professorController.listaProfessor}" var="objeto"
+						widgetVar="dataTableWV">
+						<p:column>
+							<f:facet name="header">Id</f:facet>
+	    				#{objeto.id}
+	    		</p:column>
+						<p:column>
+							<f:facet name="header">Nome</f:facet>
+	    				#{objeto.pessoas.nome}
+	    		</p:column>
+						<p:column>
+							<f:facet name="header">Cidade</f:facet>
+	    				#{objeto.cidade.nome}
+	    		</p:column>
+
+
+						<p:column>
+							<f:facet name="header">Experiencia</f:facet>
+	    				#{objeto.experiencia}
+	    		</p:column>
+
+
+						<p:column>
+							<f:facet name="header">Ação</f:facet>
+							<p:commandButton value="Editar" update="form" icon="fa fa-bug">
+								<f:setPropertyActionListener
+									target="#{professorController.entity}" value="#{objeto}" />
+							</p:commandButton>
+						</p:column>
+
+					</p:dataTable>
+
+				</h:form>
+			</center>
+		</f:view>
+
+	</ui:define>
+</ui:composition>
