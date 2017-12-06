@@ -31,7 +31,9 @@ public class Disciplina extends Model<Disciplina> {
 	@ManyToOne
 	@JoinColumn(name = "idProfessor", nullable = true)
 	private Professor professor;
-	
+	@ManyToOne
+	@JoinColumn(name = "idCurso", nullable = true)
+	private Curso curso;
 
 	public Integer getId() {
 		return id;
@@ -50,6 +52,13 @@ public class Disciplina extends Model<Disciplina> {
 		this.professor = professor;
 	}
 	
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 	
 
 	public String getNome() {

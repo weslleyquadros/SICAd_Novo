@@ -15,6 +15,7 @@
 		<class>br.unitins.sac.model.Pessoas</class>
 		<class>br.unitins.sac.model.Professor</class>
 		<class>br.unitins.sac.model.Disciplina</class>
+		<class>br.unitins.sac.model.Curso</class>
 
 		<shared-cache-mode>NONE</shared-cache-mode>
 

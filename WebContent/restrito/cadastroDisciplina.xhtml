@@ -15,7 +15,9 @@
 
 					<p:panel id="panel" header="Cadastro de Disciplina">
 						<p:panelGrid id="pgDados" columns="4" styleClass="semBorda">
-
+							<p:outputLabel value="Disciplina" />
+							<p:inputText value="#{disciplinaController.entity.nome}" />
+							
 							<p:outputLabel value="Professor:" />
 							<p:selectOneMenu value="#{disciplinaController.entity.professor}"
 								style="width:215px;">
@@ -25,8 +27,16 @@
 									var="o" itemLabel="#{o.nome}" itemValue="#{o}" />
 							</p:selectOneMenu>
 
-							<p:outputLabel value="Disciplina" />
-							<p:inputText value="#{disciplinaController.entity.nome}" />
+							<p:outputLabel value="Curso:" />
+							<p:selectOneMenu value="#{disciplinaController.entity.curso}"
+								style="width:215px;">
+								<f:converter converterId="cursoConverter" />
+								<f:selectItem itemLabel="Selecione um Curso ..." />
+								<f:selectItems value="#{disciplinaController.listaCurso}"
+									var="o" itemLabel="#{o.nome}" itemValue="#{o}" />
+							</p:selectOneMenu>
+
+
 
 							<p:outputLabel value="Carga Horaria:" />
 							<p:inputText value="#{disciplinaController.entity.carga_horaria}" />
@@ -72,7 +82,7 @@
 					<p:dataTable id="dataTable"
 						value="#{disciplinaController.listaDisciplina}" var="objeto"
 						widgetVar="dataTableWV">
-						<f:facet name="header" >Lista de Disciplinas</f:facet>
+						<f:facet name="header">Lista de Disciplinas</f:facet>
 						<p:column>
 							<f:facet name="header">Id</f:facet>
 	    				#{objeto.id}
@@ -84,6 +94,10 @@
 						<p:column>
 							<f:facet name="header">Professor</f:facet>
 	    				#{objeto.professor.nome}
+	    		</p:column>
+						<p:column>
+							<f:facet name="header">Curso</f:facet>
+	    				#{objeto.curso.nome}
 	    		</p:column>
 						<p:column>
 							<f:facet name="header">Carga Horaria</f:facet>
@@ -101,8 +115,8 @@
 						<p:column>
 							<f:facet name="header">Ação</f:facet>
 							<p:commandButton value="Editar" update="form" icon="fa fa-bug">
-								<f:setPropertyActionListener target="#{alunoController.entity}"
-									value="#{objeto}" />
+								<f:setPropertyActionListener
+									target="#{disciplinaController.entity}" value="#{objeto}" />
 							</p:commandButton>
 						</p:column>
 

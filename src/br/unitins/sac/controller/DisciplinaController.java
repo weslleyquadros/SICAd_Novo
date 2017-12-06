@@ -12,11 +12,13 @@ import br.unitins.frame.validation.Validation;
 import br.unitins.sac.factory.JPAFactory;
 import br.unitins.sac.model.Aluno;
 import br.unitins.sac.model.Cidade;
+import br.unitins.sac.model.Curso;
 import br.unitins.sac.model.Disciplina;
 import br.unitins.sac.model.Pessoas;
 import br.unitins.sac.model.Professor;
 import br.unitins.sac.repository.AlunoRepository;
 import br.unitins.sac.repository.CidadeRepository;
+import br.unitins.sac.repository.CursoRepository;
 import br.unitins.sac.repository.DisciplinaRepository;
 import br.unitins.sac.repository.PessoasRepository;
 import br.unitins.sac.repository.ProfessorRepository;
@@ -29,6 +31,7 @@ import br.unitins.sac.validation.DisciplinaValidation;
 public class DisciplinaController extends Controller<Disciplina> {
 
 	private List<Professor> listaProfessor;
+	private List<Curso> listaCurso;
 	private List<Disciplina> listaDisciplina;
 
 	private Report relatorio;
@@ -44,6 +47,7 @@ public class DisciplinaController extends Controller<Disciplina> {
 		if (entity == null) {
 			entity = new Disciplina();
 			entity.setProfessor(new Professor());
+			entity.setCurso(new Curso());
 
 		}
 		return entity;
@@ -54,6 +58,7 @@ public class DisciplinaController extends Controller<Disciplina> {
 		super.clean(actionEvent);
 		setListaDisciplina(null);
 		setListaProfessor(null);
+		setListaCurso(null);
 	}
 
 	@Override
@@ -88,6 +93,18 @@ public class DisciplinaController extends Controller<Disciplina> {
 
 	public void setListaProfessor(List<Professor> listaProfessor) {
 		this.listaProfessor = listaProfessor;
+	}
+	
+	public List<Curso> getListaCurso() {
+		if (listaCurso == null) {
+			CursoRepository repository = new CursoRepository(JPAFactory.getEntityManager());
+			listaCurso = repository.bucarTodos();
+		}
+		return listaCurso;
+	}
+
+	public void setListaCurso(List<Curso> listaCurso) {
+		this.listaCurso = listaCurso;
 	}
 
 }
