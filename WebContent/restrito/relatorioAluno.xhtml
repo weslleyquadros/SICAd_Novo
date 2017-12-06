@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/restrito/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<f:view>
+			<center>
+
+				<h:form id="form">
+					<p:growl id="growl" showDetail="false" sticky="false" life="5000" />
+
+
+					<p:panel id="panel">
+					
+						<h2>Relatório de Alunos</h2>
+						<p:separator />
+						
+
+
+							<p:commandButton value="Imprimir" icon=""
+							styleClass="m-button"
+							actionListener="#{relatorioAlunoController.imprimir}" 	 />
+							
+							<div  style="float:right; top: 100px;">
+							<h:commandLink > 
+								<p:fileDownload value="#{alunoController.relatorio.pdf}" />
+								<p:graphicImage library="img" name="pdf.png" title="Imprimir PDF"/>
+							</h:commandLink>
+						</div><br/><br/>
+							
+							
+						<p:separator />
+
+						<p:dataTable id="dataTable" value="#{relatorioAlunoController.listaAluno}"
+							var="objeto" widgetVar="dataTableWV" reflow="true">
+							<f:facet name="header" >Lista de Alunos</f:facet>
+							<p:column>
+				<f:facet name="header">Id</f:facet>
+	    				#{objeto.id}
+	    		</p:column>
+			<p:column>
+				<f:facet name="header">Matricula</f:facet>
+	    				#{objeto.matricula}
+	    		</p:column>
+			<p:column >
+				<f:facet name="header">Nome</f:facet>
+	    				#{objeto.pessoas.nome}
+	    		</p:column>
+			<p:column >
+				<f:facet name="header">Cidade</f:facet>
+	    				#{objeto.cidade.nome}
+	    		</p:column>
+			
+			
+			<p:column >
+				<f:facet name="header">Nota 1</f:facet>
+	    				#{objeto.nota1}
+	    		</p:column>
+			
+			
+			<p:column >
+				<f:facet name="header">Nota 2</f:facet>
+	    				#{objeto.nota2}
+	    		</p:column>
+			
+
+						</p:dataTable>
+					</p:panel>
+
+				</h:form>
+			</center>
+		</f:view>
+
+	</ui:define>
+</ui:composition>

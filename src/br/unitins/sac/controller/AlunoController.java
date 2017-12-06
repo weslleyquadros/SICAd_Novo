@@ -16,6 +16,7 @@ import br.unitins.sac.model.Pessoas;
 import br.unitins.sac.repository.AlunoRepository;
 import br.unitins.sac.repository.CidadeRepository;
 import br.unitins.sac.repository.PessoasRepository;
+import br.unitins.sac.util.Report;
 import br.unitins.sac.validation.AlunoValidation;
 
 @ManagedBean
@@ -25,7 +26,15 @@ public class AlunoController extends Controller<Aluno> {
 	private List<Cidade> listaCidade;
 	private List<Pessoas> listaPessoas;
 	private List<Aluno> listaAluno;
-
+	
+private Report relatorio;
+	
+	public Report getRelatorio() {
+		if (relatorio == null) 
+			relatorio = new Report("jdbc/web2", "reports", "AlunoReport");
+		return relatorio;
+	}
+	
 	@Override
 	public Aluno getEntity() {
 		if (entity == null) {
@@ -35,6 +44,8 @@ public class AlunoController extends Controller<Aluno> {
 		}
 		return entity;
 	}
+	
+	
 
 	@Override
 	public void clean(ActionEvent actionEvent) {

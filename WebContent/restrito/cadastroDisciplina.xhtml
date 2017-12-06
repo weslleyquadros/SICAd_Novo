@@ -1,0 +1,102 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/restrito/template.xhtml">
+
+<ui:define name="conteudo">
+
+<f:view>
+<center>
+
+	<h:form id="form">
+		<p:growl id="growl" showDetail="false" sticky="false"  life="5000" /> 
+		
+	    	
+	    	<p:panel id="panel" header="Cadastro de Disciplina">
+			<p:panelGrid id="pgDados" columns="4" styleClass="semBorda" >
+				
+				<p:outputLabel value="Professor:" />
+				<p:selectOneMenu value="#{disciplinaController.entity.professor}" style="width:215px;">
+				 <f:converter converterId="professorConverter"/>
+	                <f:selectItem  itemLabel="Selecione um Professor ..." />
+	                <f:selectItems value="#{disciplinaController.listaProfessor}" var="o" itemLabel="#{o.nome}" itemValue="#{o}"/>
+				</p:selectOneMenu>
+				
+				<p:outputLabel value="Disciplina" />
+				<p:inputText value="#{disciplinaController.entity.nome}" />
+	          
+				<p:outputLabel value="Carga Horaria:" />
+				<p:inputText value="#{disciplinaController.entity.carga_horaria}" />
+				<p:outputLabel value="Descrição:" />
+				<p:inputText value="#{disciplinaController.entity.descricao}" />
+	
+			</p:panelGrid>
+
+			<br/>
+			
+			<p:commandButton value="Incluir" 
+				actionListener="#{disciplinaController.insert}" 
+				disabled="#{disciplinaController.entity.id != null}"
+				process="panel" update="form" />
+			
+			<p:commandButton value="Alterar" 
+				actionListener="#{disciplinaController.update}" 
+				disabled="#{disciplinaController.entity.id == null}"
+				process="panel" update="form" />
+	
+			<p:commandButton value="Excluir" 
+				actionListener="#{disciplinaController.delete}" 
+				disabled="#{disciplinaController.entity.id == null}"	
+				process="panel" update="form" />
+			
+			<p:commandButton value="Limpar" icon="" 
+				actionListener="#{disciplinaController.clean}" 
+				process="panel" update="form" />
+				
+		</p:panel>
+					
+		<br/><p:separator id="separator" /><br/>
+
+		<p:dataTable id="dataTable" value="#{disciplinaController.listaDisciplina}" var="objeto" widgetVar="dataTableWV" >	
+			<p:column>
+				<f:facet name="header">Id</f:facet>
+	    				#{objeto.id}
+	    		</p:column>
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+	    				#{objeto.nome}
+	    		</p:column>
+			<p:column >
+				<f:facet name="header">Professor</f:facet>
+	    				#{objeto.professor.nome}
+	    		</p:column>
+			<p:column >
+				<f:facet name="header">Carga Horaria</f:facet>
+	    				#{objeto.carga_horaria}
+	    		</p:column>
+			
+			
+			<p:column >
+				<f:facet name="header">Descrição</f:facet>
+	    				#{objeto.descricao}
+	    		</p:column>
+			
+			
+			
+			<p:column >
+				<f:facet name="header">Ação</f:facet>
+				<p:commandButton value="Editar" update="form" icon="fa fa-bug" >
+					<f:setPropertyActionListener
+						target="#{alunoController.entity}" value="#{objeto}" />
+				</p:commandButton>
+			</p:column>
+	    		
+		</p:dataTable>
+	
+	</h:form>
+</center>	
+</f:view>
+
+</ui:define>
+</ui:composition>

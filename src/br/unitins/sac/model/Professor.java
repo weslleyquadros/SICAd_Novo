@@ -13,26 +13,29 @@ import br.unitins.frame.model.Model;
 @Entity
 public class Professor extends Model<Professor> {
 
-	
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 5608278203795408342L;
+	private static final long serialVersionUID = -4810569963385531540L;
+	/**
+	 * 
+	 */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqidprofessor")
 	@SequenceGenerator(name = "seqidprofessor", sequenceName = "seqidprofessor", allocationSize = 1)
 	private Integer id;
 	private String experiencia;
-	
 
+	private String nome;
+	private String cpf;
+	private String Rg;
+	private String endereco;
+	private String telefone;
 
 	@ManyToOne
 	@JoinColumn(name = "idCidade", nullable = true)
 	private Cidade cidade;
-	@JoinColumn(name = "idPessoas", nullable = true)
-	private Pessoas pessoas;
 
 	public Integer getId() {
 		return id;
@@ -50,7 +53,6 @@ public class Professor extends Model<Professor> {
 		this.experiencia = experiencia;
 	}
 
-
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -58,15 +60,45 @@ public class Professor extends Model<Professor> {
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	
-	public Pessoas getPessoas() {
-		return pessoas;
+
+	public String getNome() {
+		return nome;
 	}
 
-	public void setPessoas(Pessoas pessoas) {
-		this.pessoas = pessoas;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	
-	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getRg() {
+		return Rg;
+	}
+
+	public void setRg(String rg) {
+		Rg = rg;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
 }

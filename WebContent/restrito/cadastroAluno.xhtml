@@ -13,7 +13,9 @@
 		<p:growl id="growl" showDetail="false" sticky="false"  life="5000" /> 
 		
 	    	
-	    	<p:panel id="panel" header="Cadastro de Aluno">
+	    	<p:panel id="panel" >
+	    	<h2>Cadastro de Aluno</h2>
+	    	<p:separator />
 			<p:panelGrid id="pgDados" columns="4" styleClass="semBorda" >
 				
 				<p:outputLabel value="Nome:" />
@@ -41,8 +43,14 @@
 				<p:inputText value="#{alunoController.entity.nota2}" />
 	
 			</p:panelGrid>
-
-			<br/>
+<div  style="float:right; top: 100px;">
+							<h:commandLink > 
+								<p:fileDownload value="#{alunoController.relatorio.pdf}" />
+								<p:graphicImage library="img" name="pdf.png" title="Imprimir PDF"/>
+							</h:commandLink>
+						</div>
+						<br/><br/>
+			<p:separator />
 			
 			<p:commandButton value="Incluir" 
 				actionListener="#{alunoController.insert}" 
@@ -63,9 +71,10 @@
 				actionListener="#{alunoController.clean}" 
 				process="panel" update="form" />
 				
+				
 		</p:panel>
 					
-		<br/><p:separator id="separator" /><br/>
+		
 
 		<p:dataTable id="dataTable" value="#{alunoController.listaAluno}" var="objeto" widgetVar="dataTableWV" >	
 			<p:column>

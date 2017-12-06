@@ -10,52 +10,66 @@ import javax.persistence.EntityManager;
 import br.unitins.frame.controller.Controller;
 import br.unitins.frame.validation.Validation;
 import br.unitins.sac.factory.JPAFactory;
-
+import br.unitins.sac.model.Aluno;
 import br.unitins.sac.model.Cidade;
+import br.unitins.sac.model.Disciplina;
 import br.unitins.sac.model.Pessoas;
 import br.unitins.sac.model.Professor;
-
+import br.unitins.sac.repository.AlunoRepository;
 import br.unitins.sac.repository.CidadeRepository;
+import br.unitins.sac.repository.DisciplinaRepository;
 import br.unitins.sac.repository.PessoasRepository;
 import br.unitins.sac.repository.ProfessorRepository;
-import br.unitins.sac.validation.PessoasValidation;
-import br.unitins.sac.validation.ProfessorValidation;
+import br.unitins.sac.validation.AlunoValidation;
+import br.unitins.sac.validation.DisciplinaValidation;
 
 @ManagedBean
 @ViewScoped
-public class ProfessorController extends Controller<Professor> {
+public class DisciplinaController extends Controller<Disciplina> {
 
-	private List<Professor> listaProfessor;
-	private List<Cidade> listaCidade;
 	
+	private List<Professor> listaProfessor;
+	private List<Disciplina> listaDisciplina;
 
 	@Override
-	public Professor getEntity() {
+	public Disciplina getEntity() {
 		if (entity == null) {
-			entity = new Professor();
-			entity.setCidade(new Cidade());
+			entity = new Disciplina();
+			entity.setProfessor(new Professor());
 		
 		}
-			return entity;
+		return entity;
 	}
 
-	
-	
 	@Override
-	public Validation<Professor> getValidation() {
-		return new ProfessorValidation();
+	public void clean(ActionEvent actionEvent) {
+		super.clean(actionEvent);
+		setListaDisciplina(null);
+		setListaProfessor(null);
+	}
+
+	@Override
+	public Validation<Disciplina> getValidation() {
+		return new DisciplinaValidation();
 	}
 
 	@Override
 	protected EntityManager getEntityManager() {
 		return JPAFactory.getEntityManager();
 	}
-	
-	@Override
-	public void clean(ActionEvent actionEvent) {
-		super.clean(actionEvent);
-		setListaProfessor(null);
+
+	public List<Disciplina> getListaDisciplina() {
+		if (listaDisciplina == null) {
+			DisciplinaRepository repository = new DisciplinaRepository(JPAFactory.getEntityManager());
+			listaDisciplina = repository.bucarTodos();
+		}
+		return listaDisciplina;
 	}
+
+	public void setListaDisciplina(List<Disciplina> listaServidor) {
+		this.listaDisciplina = listaServidor;
+	}
+
 
 	public List<Professor> getListaProfessor() {
 		if (listaProfessor == null) {
@@ -68,16 +82,8 @@ public class ProfessorController extends Controller<Professor> {
 	public void setListaProfessor(List<Professor> listaProfessor) {
 		this.listaProfessor = listaProfessor;
 	}
-	public List<Cidade> getListaCidade() {
-		if (listaCidade == null) {
-			CidadeRepository repository = new CidadeRepository(JPAFactory.getEntityManager());
-			listaCidade = repository.bucarTodos();
-		}
-		return listaCidade;
-	}
 
-	public void setListaCidade(List<Cidade> listaCidade) {
-		this.listaCidade = listaCidade;
-	}
+	
+	
 
 }

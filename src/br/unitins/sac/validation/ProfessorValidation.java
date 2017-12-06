@@ -16,6 +16,20 @@ public class ProfessorValidation implements Validation<Professor> {
 		if (t.getExperiencia() == null || t.getExperiencia().trim().equals(""))
 			getlistMessages().add("A Experiencia deve ser informada!");
 		
+		if (t.getNome() == null || t.getNome().trim().equals(""))
+			getlistMessages().add("O nome deve ser informado!");
+		
+		if (t.getCpf() == null || t.getCpf().equals(""))
+			getlistMessages().add("O cpf deve ser informado!");
+		
+		if (t.getRg() == null || t.getRg().equals(""))
+			getlistMessages().add("O RG deve ser informado!");
+		
+		if (t.getEndereco() == null || t.getEndereco().equals(""))
+			getlistMessages().add("O Endereço deve ser informado!");
+		
+		if (t.getTelefone() == null || t.getTelefone().equals(""))
+			getlistMessages().add("O Telefone deve ser informado!");
 		
 		
 		if (getlistMessages().size() > 0)

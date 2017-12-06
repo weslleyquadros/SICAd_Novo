@@ -12,43 +12,17 @@
 				<h:form id="form">
 					<p:growl id="growl" showDetail="false" sticky="false" life="5000" />
 
-					<p:panel id="panel" header="Cadastro de Professor">
-						<p:panelGrid id="pgDados" columns="4" styleClass="semBorda">
-							<p:outputLabel value="Nome:" />
-							<p:inputText value="#{professorController.entity.nome}"
-								style="width:200px;" />
-
-							<p:outputLabel value="Cpf:" />
-							<p:inputMask id="cpf" value="#{professorController.entity.cpf}"
-								mask="999.999.999-99" placeholder="CPF" style="width:215px;" />
-
-							<p:outputLabel value="RG:" />
-							<p:inputText value="#{professorController.entity.rg}"
-								style="width:200px;">
-							</p:inputText>
-							<p:outputLabel value="Logradouro:" />
-							<p:inputText value="#{professorController.entity.endereco}"
-								style="width:215px;" />
-
-							<p:outputLabel value="Telefone:" />
-							<p:inputMask id="telefone"
-								value="#{professorController.entity.telefone}"
-								mask="(99) 99999-9999" placeholder="Telefone"
-								styleClass="entradaDeDados" />
-
-							<p:outputLabel value="Experiencia:" />
-							<p:inputText value="#{professorController.entity.experiencia}"
-								style="width:200px;" />
-
-							<p:outputLabel value="Natural de:" />
-							<p:selectOneMenu value="#{professorController.entity.cidade}"
-								style="width:200px;">
-								<f:converter converterId="cidadeConverter" />
-								<f:selectItem itemLabel="Selecione uma cidade ..." />
-								<f:selectItems value="#{professorController.listaCidade}"
-									var="o" itemLabel="#{o.nome}" itemValue="#{o}" />
-							</p:selectOneMenu>
-						</p:panelGrid>
+					<p:panel id="panel" >
+						
+						<h2>RELATÓRIO PROFESSOR</h2>
+						
+						<div  style="float:right; top: 100px;">
+							<h:commandLink > 
+								<p:fileDownload value="#{professorController.relatorio.pdf}" />
+								<p:graphicImage library="img" name="pdf.png" title="Baixar em  PDF"/>
+							</h:commandLink>
+						</div><br/><br/>
+						
 
 						<br />
 
