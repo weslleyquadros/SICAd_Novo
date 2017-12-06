@@ -20,6 +20,7 @@ import br.unitins.sac.repository.CidadeRepository;
 import br.unitins.sac.repository.DisciplinaRepository;
 import br.unitins.sac.repository.PessoasRepository;
 import br.unitins.sac.repository.ProfessorRepository;
+import br.unitins.sac.util.Report;
 import br.unitins.sac.validation.AlunoValidation;
 import br.unitins.sac.validation.DisciplinaValidation;
 
@@ -27,16 +28,23 @@ import br.unitins.sac.validation.DisciplinaValidation;
 @ViewScoped
 public class DisciplinaController extends Controller<Disciplina> {
 
-	
 	private List<Professor> listaProfessor;
 	private List<Disciplina> listaDisciplina;
+
+	private Report relatorio;
+
+	public Report getRelatorio() {
+		if (relatorio == null)
+			relatorio = new Report("jdbc/web2", "reports", "DisciplinaReport");
+		return relatorio;
+	}
 
 	@Override
 	public Disciplina getEntity() {
 		if (entity == null) {
 			entity = new Disciplina();
 			entity.setProfessor(new Professor());
-		
+
 		}
 		return entity;
 	}
@@ -70,7 +78,6 @@ public class DisciplinaController extends Controller<Disciplina> {
 		this.listaDisciplina = listaServidor;
 	}
 
-
 	public List<Professor> getListaProfessor() {
 		if (listaProfessor == null) {
 			ProfessorRepository repository = new ProfessorRepository(JPAFactory.getEntityManager());
@@ -82,8 +89,5 @@ public class DisciplinaController extends Controller<Disciplina> {
 	public void setListaProfessor(List<Professor> listaProfessor) {
 		this.listaProfessor = listaProfessor;
 	}
-
-	
-	
 
 }

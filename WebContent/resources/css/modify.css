@@ -1,6 +1,6 @@
 /* BOTÕES */
 .m-button {
-	background-color: #F27E22 !important;
+	background-color: #48cc8a!important;
 	background-image: none !important;
 	border: none !important;
 	
@@ -9,9 +9,9 @@
 }
 
 .m-button:hover {
-	background-color: #F8B27E !important;
+	background-color: #32bc82 !important;
 	box-shadow: none !important;
-	color: #DC5412 !important;
+	color: #32bc82!important;
 }
 
 .m-button:focus {
@@ -20,7 +20,7 @@
 
 .m-button:disabled {
 	opacity: 1;
-	background-color: #FDE6D5 !important;
+	background-color: #ddf9d9!important;
 	color: #fff !important;
 	border: none !important;
 }
@@ -42,8 +42,8 @@
 }
 
 .m-input:focus {
-	border-color: #F27E22 !important;
-	background-color: #FDE6D5 !important;
+	border-color: #32bc82 !important;
+	background-color: #ddf9d9 !important;
 }
 /* FIM CAMPOS */
 
@@ -62,7 +62,7 @@
 }
 
 .m-select.ui-state-focus {
-	border-color: #F27E22 !important;
+	border-color: #32bc82 !important;
 }
 
 .m-select .ui-selectonemenu-label {
@@ -72,7 +72,7 @@
 }
 
 .m-select .ui-selectonemenu-trigger {
-	background-color: #F27E22 !important;
+	background-color: #32bc82 !important;
 	background-image: none !important;
 	border: none !important;
 	box-shadow: none !important;
@@ -84,15 +84,15 @@
 
 li.ui-state-highlight {
 	background-image: none !important;
-	background-color: #F27E22 !important;	
+	background-color: #32bc82 !important;	
 	border: none !important;
 	text-shadow: none !important;
 }
 
 li.ui-state-hover {
-	color: #DC5412 !important;
+	color: #279466!important;
 	background-image: none !important;
-	background-color: #F8B27E !important;	
+	background-color: #99e3c4!important;	
 	border: none !important;
 	text-shadow: none !important;
 }
@@ -128,20 +128,20 @@ li.ui-state-hover {
 
 /* DATATABLE */
 .ui-datatable .ui-datatable-header {
-	background-color: #F27E22 !important;
+	background-color: #32bc82 !important;
 	background-image: none !important;
 	color: #fff !important;
 	text-shadow: none !important;
 }
 
 .ui-datatable-tablewrapper th {
-	background-color: #F8B27E !important;
+	background-color: #77dbb0!important;
 	background-image: none !important;
-	color: #DC5412 !important;
+	color: #fff !important;
 	text-shadow: none !important;
 }
 
 .ui-datatable-odd {
-	background-color: #FDE6D5 !important;
+	background-color: #bcedd8!important;
 }
 /* FIM DATATABLE */

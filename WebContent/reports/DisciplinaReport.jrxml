@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DisciplinaReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8cabab3-7bb1-4e8e-980f-b7e536cd8150">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cHVibGljLnByb2Zlc3NvciAsMTY0LDIwLDJjNGJhMDQxLWZiZTAtNDdkYS1iZmM3LTIzZDk0ZGE5
+MTRkOTtwdWJsaWMuZGlzY2lwbGluYSAsMjAsNzMsYjliNGNjNGYtYTk2ZS00MmJkLTliZTktZDAw
+M2JiM2QzYzdlOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT public.disciplina.nome,
+	public.disciplina.carga_horaria,
+	public.disciplina.descricao,
+	public.professor.nome
+FROM public.disciplina,
+	public.professor
+WHERE 
+	 public.disciplina.idprofessor = public.professor.id]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+	</field>
+	<field name="descricao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descricao"/>
+	</field>
+	<field name="carga_horaria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="carga_horaria"/>
+	</field>
+	<field name="COLUMN_4" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{nome}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="f430cc3d-a270-4a1d-a9f7-3aea70a65719"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[nome]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="9381dcaa-a87b-4a8e-8a2d-4b6c5c2fa23e"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="b3a03b7d-2947-48b5-863b-4c0f559f32d9"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="f8490c5d-853d-4fb3-b1a7-5a77ef4ee781"/>
+				<staticText>
+					<reportElement x="18" y="10" width="420" height="43" forecolor="#FFFFFF" uuid="1b462e2d-1ac0-4820-abcf-b8a954ebe7a5"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Disciplinas Cadastradas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="28" y="66" width="245" height="21" forecolor="#FFFFFF" uuid="dd97011c-f243-40f4-b838-22e9ff9a79b0"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Palmas, Tocantins, Brazil]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="28" y="47" width="71" height="21" forecolor="#FFFFFF" uuid="ea51a300-d9d1-46c9-80ec-40f4bd707932"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[SICAD ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="fda92d25-cc54-4af3-a412-51207dd3a22b"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[RELATORIO GERAL]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e78c9bb5-71ed-474a-9160-e99998e7ac54"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-7" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="16ddbcc5-d07e-4302-a590-773144525ce5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f23abf9-6dde-46e7-ba9f-a42855c13893"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="-7" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d6ef6659-2df6-45ac-a461-b6dad7bed1b6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60ae1049-6cb7-4306-9736-9b90053c896b"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carga Horaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="-7" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="40bc1564-7b8c-4c7f-b915-0c228b3d7302">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a159d4e3-4a08-431b-9e58-3f07093b0306"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Professor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="ba1d7f17-17f3-405f-94fc-6b00b2285f38"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="185" height="20" uuid="70651542-8579-469b-8559-5392df06cf3e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f23abf9-6dde-46e7-ba9f-a42855c13893"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="185" y="0" width="185" height="20" uuid="65f3cd07-2b60-4207-99c7-aef926addd3b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60ae1049-6cb7-4306-9736-9b90053c896b"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carga_horaria}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="370" y="0" width="185" height="20" uuid="d5c95266-72f6-49b1-a2bf-d71801e121a0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a159d4e3-4a08-431b-9e58-3f07093b0306"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLUMN_4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="fd4bb249-8684-4abc-bbf8-aa7a97f83148"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="04e6854a-49fa-46a2-9c1e-97e131d38ded"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="5c5a2176-0d50-4d4c-b218-ebb951ae1c16"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

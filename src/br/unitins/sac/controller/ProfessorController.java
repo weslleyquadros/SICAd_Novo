@@ -18,6 +18,7 @@ import br.unitins.sac.model.Professor;
 import br.unitins.sac.repository.CidadeRepository;
 import br.unitins.sac.repository.PessoasRepository;
 import br.unitins.sac.repository.ProfessorRepository;
+import br.unitins.sac.util.Report;
 import br.unitins.sac.validation.PessoasValidation;
 import br.unitins.sac.validation.ProfessorValidation;
 
@@ -27,8 +28,12 @@ public class ProfessorController extends Controller<Professor> {
 
 	private List<Professor> listaProfessor;
 	private List<Cidade> listaCidade;
-	
-
+	private Report relatorio;
+	public Report getRelatorio() {
+		if (relatorio == null) 
+			relatorio = new Report("jdbc/web2", "reports", "ProfessorReport");
+		return relatorio;
+	}
 	@Override
 	public Professor getEntity() {
 		if (entity == null) {

@@ -13,24 +13,24 @@
            			
            			<p:panelGrid columns="2" layout="grid">
            			
-           			<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="De:  " />
+           			<h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Seu email  " />
 					<h:inputText value="#{mailgctr.fromMail}" />
                
-                    <h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Usuário:  " />
+                    <h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Seu email novamente:  " />
 					<h:inputText value="#{mailgctr.username}" />
                
-               		<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Senha:  " />
+               		<h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Senha do email:  " />
 					<h:inputSecret value="#{mailgctr.password}"/>
                    
-                   	<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Destinatário: " />
+                   	<h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Email Destinatário: " />
 					<h:inputText value="#{mailgctr.toMail}"/>
                
-                  	<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Assunto: " />
+                  	<h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Assunto: " />
 					<h:inputText value="#{mailgctr.subject}"/>
                
-                	<h:outputText style="font-weight:bold; font-size: 18pt; text-align:left" value="Mensagem:  " />
+                	<h:outputText style="font-weight:bold; font-size: 14pt; text-align:left" value="Mensagem:  " />
 					<h:inputTextarea value="#{mailgctr.message}"/>
-             
+             		
           </p:panelGrid>
             <p:commandButton value="Enviar" action="#{mailgctr.send()}"/>
         </h:form>
